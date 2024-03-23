@@ -17,3 +17,4 @@ Cargo.lock
 __pycache__/
 
 build
+account_info.json
