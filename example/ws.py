@@ -383,7 +383,7 @@ api_key = ""
 secret_key = ""
 passphrase = ""
 
-with open("account/account_info.json", "r") as f:
+with open("account_info.json", "r") as f:
     account_info = json.load(f)
     api_key = account_info['api_key']
     secret_key = account_info['secret_key']

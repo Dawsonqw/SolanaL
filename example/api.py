@@ -14,7 +14,7 @@ if __name__ == '__main__':
     secret_key = ""
     passphrase = ""
 
-    with open("account/account_info.json", "r") as f:
+    with open("account_info.json", "r") as f:
         account_info = json.load(f)
         api_key = account_info['api_key']
         secret_key = account_info['secret_key']
@@ -27,23 +27,21 @@ if __name__ == '__main__':
     # account api
     accountAPI = Account.AccountAPI(api_key, secret_key, passphrase, False, flag)
     # 查看账户持仓风险 GET Position_risk
-    result = accountAPI.get_position_risk('SWAP')
+    # result = accountAPI.get_position_risk('SWAP')
     # 查看账户余额  Get Balance
-    # result = accountAPI.get_account()
+    # result = accountAPI.get_account_balance()
     # 查看持仓信息  Get Positions
     # result = accountAPI.get_positions('FUTURES', 'BTC-USD-210402')
     # 账单流水查询（近七天） Get Bills Details (recent 7 days)
-    # result = accountAPI.get_bills_detail('FUTURES', 'BTC','cross')
+    # result = accountAPI.get_account_bills('FUTURES', 'BTC','cross')
     # 账单流水查询（近三个月） Get Bills Details (recent 3 months)
-    # result = accountAPI.get_bills_details('FUTURES', 'BTC','cross')
+    # result = accountAPI.get_account_bills_archive('FUTURES', 'BTC','cross')
     # 查看账户配置  Get Account Configuration
     # result = accountAPI.get_account_config()
-    # 设置持仓模式  Set Position mode
-    # result = accountAPI.get_position_mode('long_short_mode')
     # 设置杠杆倍数  Set Leverage
     # result = accountAPI.set_leverage(instId='BTC-USD-210402', lever='10', mgnMode='cross')
     # 获取最大可交易数量  Get Maximum Tradable Size For Instrument
-    # result = accountAPI.get_maximum_trade_size('BTC-USDT-210402', 'cross', 'USDT')
+    # result = accountAPI.get_max_order_size('BTC-USDT-210402', 'cross', 'USDT')
     # 获取最大可用数量  Get Maximum Available Tradable Amount
     # result = accountAPI.get_max_avail_size('BTC-USDT-210402', 'isolated', 'BTC')
     # 调整保证金  Increase/Decrease margint
@@ -99,7 +97,7 @@ if __name__ == '__main__':
     # 获取交易产品历史K线数据（仅主流币实盘数据）  Get Candlesticks History（top currencies in real-trading only）
     # result = marketAPI.get_history_candlesticks('BTC-USDT')
     # 获取指数K线数据  Get Index Candlesticks
-    # result = marketAPI.get_index_candlesticks('BTC-USDT')
+    result = marketAPI.get_index_candlesticks('BTC-USDT')
     # 获取标记价格K线数据  Get Mark Price Candlesticks
     # result = marketAPI.get_markprice_candlesticks('BTC-USDT')
     # 获取交易产品公共成交数据  Get Trades
@@ -209,7 +207,7 @@ if __name__ == '__main__':
     # result = subAccountAPI.control_transfer(ccy='', amt='', froms='', to='', fromSubAccount='', toSubAccount='')
 
     # 系统状态API(仅适用于实盘) system status
-    Status = Status.StatusAPI(api_key, secret_key, passphrase, False, flag)
+    # Status = Status.StatusAPI(api_key, secret_key, passphrase, False, flag)
     # 查看系统的升级状态
-    result = Status.status()
+    # result = Status.status()
     print(json.dumps(result))
