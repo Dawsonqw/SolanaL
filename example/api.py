@@ -28,7 +28,6 @@ if __name__ == '__main__':
     accountAPI = Account.AccountAPI(api_key, secret_key, passphrase, False, flag)
     # 查看账户持仓风险 GET Position_risk
     result = accountAPI.get_position_risk('SWAP')
-    print(json.dumps(result))
     # 查看账户余额  Get Balance
     # result = accountAPI.get_account()
     # 查看持仓信息  Get Positions
